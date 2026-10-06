@@ -20,7 +20,14 @@ namespace ViewModel
             CountryList CountryLst = new CountryList(base.Select());
             return CountryLst;
         }
-
+        static private CountryList list = new CountryList();
+        public static Country SelectById(int id)
+        {
+            CountryDB db = new CountryDB();
+            list = db.SelectAll();
+            Country co = list.Find(item => item.Id == id);
+            return co;
+        }
         protected override BaseEntity CreateModel(BaseEntity entity)
         {
             Country c = entity as Country;

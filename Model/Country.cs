@@ -8,8 +8,8 @@ namespace Model
 {
     public class Country:BaseEntity
     {
-        private string cityName;
+        private string countryName;
 
-        public string CityName { get => cityName; set => cityName = value; }
+        public string CountryName { get => countryName; set => countryName = value; }
     }
 }

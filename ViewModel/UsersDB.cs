@@ -20,7 +20,14 @@ namespace ViewModel
             UsersList UsersLst = new UsersList(base.Select());
             return UsersLst;
         }
-
+        static private UsersList list = new UsersList();
+        public static Users SelectById(int id)
+        {
+            UsersDB db = new UsersDB();
+            list = db.SelectAll();
+            Users us = list.Find(item => item.Id == id);
+            return us;
+        }
         protected override BaseEntity CreateModel(BaseEntity entity)
         {
             Users u = entity as Users;

@@ -16,9 +16,9 @@ namespace ViewModel
 
         protected static string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="
                       + System.IO.Path.GetFullPath(System.Reflection.Assembly.GetExecutingAssembly().Location
-                      + "/../../../../../VViewModel/Planes_application.accdb");
+                      + "/../../../../../ViewModel/Planes_application.accdb");
 
-
+        //C:\Users\User\source\repos\Noam-project\ViewModel\Planes_application.accdb
 
         protected static OleDbConnection connection;
             protected OleDbCommand command;

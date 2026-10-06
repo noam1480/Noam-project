@@ -12,7 +12,7 @@ namespace ViewModel
     {
         public override BaseEntity NewEntity()
         {
-            return new Users();
+            return new Planes();
         }
         public PlanesList SelectAll()
         {
@@ -20,7 +20,14 @@ namespace ViewModel
             PlanesList PlanesLst = new PlanesList(base.Select());
             return PlanesLst;
         }
-
+        static private PlanesList list = new PlanesList();
+        public static Planes SelectById(int id)
+        {
+            PlanesDB db = new PlanesDB();
+            list = db.SelectAll();
+            Planes pl = list.Find(item => item.Id == id);
+            return pl;
+        }
         protected override BaseEntity CreateModel(BaseEntity entity)
         {
             Planes p = entity as Planes;

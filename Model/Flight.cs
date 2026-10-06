@@ -10,7 +10,7 @@ namespace Model
     public class Flight:BaseEntity
     {
         private Airports originId;
-        private Airports destenationId;
+        private Airports destinationId;
         private DateTime departureTime;
         private DateTime arrivalTime;
         private Planes planeId;
@@ -18,7 +18,7 @@ namespace Model
         private int priceInDolar;
 
         public Airports OriginId { get => originId; set => originId = value; }
-        public Airports DestenationId { get => destenationId; set => destenationId = value; }
+        public Airports DestinationId { get => destinationId; set => destinationId = value; }
         public DateTime DepartureTime { get => departureTime; set => departureTime = value; }
         public DateTime ArrivalTime { get => arrivalTime; set => arrivalTime = value; }
         public Planes PlaneId { get => planeId; set => planeId = value; }
