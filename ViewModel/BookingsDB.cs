@@ -38,5 +38,31 @@ namespace ViewModel
                 base.CreateModel(entity);
                 return entity;
             }
+
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
         }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            Bookings c = entity as Bookings;
+            if (c != null)
+            {
+                string sqlStr = $"UPDATE Bookings  SET UserId=@UserId , FlightId=@FlightId SeatNumber=@SeatNumber  Rating=@Rating    WHERE ID=@id";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@UserId", c.UserId.Id));
+                command.Parameters.Add(new OleDbParameter("@FlightId", c.FlightId.Id));
+                command.Parameters.Add(new OleDbParameter("@SeatNumber", c.SeatNumber));
+                command.Parameters.Add(new OleDbParameter("@Rating", c.Rating));
+                command.Parameters.Add(new OleDbParameter("@id", c.Id));
+            }
+        }
+    }
 }

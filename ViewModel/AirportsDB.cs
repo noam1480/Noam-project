@@ -37,5 +37,29 @@ namespace ViewModel
             base.CreateModel(entity);
             return entity;
         }
+
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            Airports c = entity as Airports;
+            if (c != null)
+            {
+                string sqlStr = $"UPDATE Airports  SET AirportName=@AirportName , Country=@Country WHERE ID=@id";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@AirportName", c.AirportName));
+                command.Parameters.Add(new OleDbParameter("@Country", c.Country.CountryName));
+                command.Parameters.Add(new OleDbParameter("@id", c.Id));
+            }
+        }
     }
 }

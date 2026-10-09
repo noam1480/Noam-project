@@ -42,5 +42,34 @@ namespace ViewModel
             base.CreateModel(entity);
             return entity;
         }
+
+        protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
+        {
+            Flight c = entity as Flight;
+            if (c != null)
+            {
+                string sqlStr = $"UPDATE Flight  SET OriginId=@OriginId , DestinationId=@DestinationId , DepartureTime=@DepartureTime , ArrivalTime=@ArrivalTime , PlaneId=@PlaneId , IsCanceled=@IsCanceled , PriceInDolar=@PriceInDolar WHERE ID=@id";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@OriginId", c.OriginId.AirportName));
+                command.Parameters.Add(new OleDbParameter("@OriginId", c.DestinationId.AirportName));
+                command.Parameters.Add(new OleDbParameter("@DepartureTime", c.DepartureTime));
+                command.Parameters.Add(new OleDbParameter("@ArrivalTime", c.ArrivalTime));
+                command.Parameters.Add(new OleDbParameter("@PlaneId", c.PlaneId.Id));
+                command.Parameters.Add(new OleDbParameter("@IsCanceled", c.IsCanceled));
+                command.Parameters.Add(new OleDbParameter("@PriceInDolar", c.PriceInDolar));
+                command.Parameters.Add(new OleDbParameter("@id", c.Id));
+            }
+        }
     }
 }
