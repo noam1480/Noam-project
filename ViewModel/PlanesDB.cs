@@ -49,7 +49,16 @@ namespace ViewModel
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            Planes p = entity as Planes;
+            if (p != null)
+            {
+                string sqlStr = $"UPDATE Planes  SET Model=@Model , TotalSeats=@TotalSeats WHERE ID=@id";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@Model", p.Model));
+                command.Parameters.Add(new OleDbParameter("@TotalSeats", p.TotalSeats));
+                command.Parameters.Add(new OleDbParameter("@id", p.Id));
+            }
         }
     }
 }

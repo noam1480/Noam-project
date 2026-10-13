@@ -57,7 +57,7 @@ namespace ViewModel
 
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@AirportName", c.AirportName));
-                command.Parameters.Add(new OleDbParameter("@Country", c.Country.CountryName));
+                command.Parameters.Add(new OleDbParameter("@Country", c.Country.Id));
                 command.Parameters.Add(new OleDbParameter("@id", c.Id));
             }
         }

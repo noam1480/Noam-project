@@ -54,7 +54,7 @@ namespace ViewModel
             Bookings c = entity as Bookings;
             if (c != null)
             {
-                string sqlStr = $"UPDATE Bookings  SET UserId=@UserId , FlightId=@FlightId SeatNumber=@SeatNumber  Rating=@Rating    WHERE ID=@id";
+                string sqlStr = $"UPDATE Bookings  SET UserId=@UserId , FlightId=@FlightId , SeatNumber=@SeatNumber , Rating=@Rating   WHERE ID=@id";
 
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@UserId", c.UserId.Id));

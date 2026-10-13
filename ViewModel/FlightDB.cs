@@ -58,13 +58,20 @@ namespace ViewModel
             Flight c = entity as Flight;
             if (c != null)
             {
-                string sqlStr = $"UPDATE Flight  SET OriginId=@OriginId , DestinationId=@DestinationId , DepartureTime=@DepartureTime , ArrivalTime=@ArrivalTime , PlaneId=@PlaneId , IsCanceled=@IsCanceled , PriceInDolar=@PriceInDolar WHERE ID=@id";
+               
+                string sqlStr = $"UPDATE Flight  SET OriginId=@OriginId , DestinationId=@DestinationId" +
+                    $" , DepartureTime=@DepartureTime , ArrivalTime=@ArrivalTime ," +
+                    $" PlaneId=@PlaneId , IsCanceled=@IsCanceled , PriceInDolar=@PriceInDolar" +
+                    $" WHERE ID=@id";
 
                 command.CommandText = sqlStr;
-                command.Parameters.Add(new OleDbParameter("@OriginId", c.OriginId.AirportName));
-                command.Parameters.Add(new OleDbParameter("@OriginId", c.DestinationId.AirportName));
-                command.Parameters.Add(new OleDbParameter("@DepartureTime", c.DepartureTime));
-                command.Parameters.Add(new OleDbParameter("@ArrivalTime", c.ArrivalTime));
+                command.Parameters.Add(new OleDbParameter("@OriginId", c.OriginId.Id));
+                command.Parameters.Add(new OleDbParameter("@DestinationId", c.DestinationId.Id));
+                //  עבור זמן המראה
+                command.Parameters.Add("@DepartureTime", System.Data.OleDb.OleDbType.Date).Value = c.DepartureTime;
+
+                //  עבור זמן נחיתה
+                command.Parameters.Add("@ArrivalTime", System.Data.OleDb.OleDbType.Date).Value = c.ArrivalTime;
                 command.Parameters.Add(new OleDbParameter("@PlaneId", c.PlaneId.Id));
                 command.Parameters.Add(new OleDbParameter("@IsCanceled", c.IsCanceled));
                 command.Parameters.Add(new OleDbParameter("@PriceInDolar", c.PriceInDolar));
