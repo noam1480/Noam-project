@@ -41,13 +41,30 @@ namespace ViewModel
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            Manager m = entity as Manager;
+            if (m != null)
+            {
+                string sqlStr = $"Insert INTO Manager (Id) VALUES (@id)";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@id", m.Id));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
             throw new NotImplementedException();
         }
+        public override void Insert(BaseEntity entity)
+        {
+            BaseEntity reqEntity = this.NewEntity();
+            if(entity!=null & entity.GetType()==reqEntity.GetType())
+            {
+                inserted.Add(new ChangeEntity(base.CreateInsertdSQL, entity));
+                inserted.Add(new ChangeEntity(this.CreateInsertdSQL, entity));
+            }
+        }
+
 
     }
 }

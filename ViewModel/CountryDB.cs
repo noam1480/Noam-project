@@ -43,7 +43,16 @@ namespace ViewModel
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+
+            Country c = entity as Country;
+            if (c != null)
+            {
+                string sqlStr = $"Insert INTO Country (CountryName) VALUES (@cName)";
+            
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@cName" ,c.CountryName));
+            }
+
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)

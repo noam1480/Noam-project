@@ -44,7 +44,15 @@ namespace ViewModel
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            Planes p = entity as Planes;
+            if (p != null)
+            {
+                string sqlStr = $"Insert INTO Planes (Model,TotalSeats) VALUES (@Model,@TotalSeats)";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@Model", p.Model));
+                command.Parameters.Add(new OleDbParameter("@TotalSeats", p.TotalSeats));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)

@@ -50,7 +50,20 @@ namespace ViewModel
 
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            Flight f = entity as Flight;
+            if (f != null)
+            {
+                string sqlStr = $"Insert INTO Flight (OriginId,DestinationId,DepartureTime,ArrivalTime,PlaneId,IsCanceled,PriceInDolar) VALUES (@originId,@destinationId,@departureTime,@arrivalTime,@planeId,@isCanceled,@priceInDolar)";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@originId", f.OriginId.Id));
+                command.Parameters.Add(new OleDbParameter("@destinationId", f.DestinationId.Id));
+                command.Parameters.Add("@DepartureTime", System.Data.OleDb.OleDbType.Date).Value = f.DepartureTime;
+                command.Parameters.Add("@ArrivalTime", System.Data.OleDb.OleDbType.Date).Value = f.ArrivalTime;
+                command.Parameters.Add(new OleDbParameter("@planeId", f.PlaneId.Id));
+                command.Parameters.Add(new OleDbParameter("@isCanceled", f.IsCanceled));
+                command.Parameters.Add(new OleDbParameter("@priceInDolar", f.PriceInDolar));
+            }
         }
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
@@ -67,10 +80,7 @@ namespace ViewModel
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@OriginId", c.OriginId.Id));
                 command.Parameters.Add(new OleDbParameter("@DestinationId", c.DestinationId.Id));
-                //  עבור זמן המראה
                 command.Parameters.Add("@DepartureTime", System.Data.OleDb.OleDbType.Date).Value = c.DepartureTime;
-
-                //  עבור זמן נחיתה
                 command.Parameters.Add("@ArrivalTime", System.Data.OleDb.OleDbType.Date).Value = c.ArrivalTime;
                 command.Parameters.Add(new OleDbParameter("@PlaneId", c.PlaneId.Id));
                 command.Parameters.Add(new OleDbParameter("@IsCanceled", c.IsCanceled));
