@@ -30,13 +30,18 @@ namespace Test
             //Console.WriteLine($"{uin} rows were inserted");
 
             //Console.WriteLine("==========================");
-            //CountryList country;
-            //CountryDB countrydb = new CountryDB();
-            //country = countrydb.SelectAll();
+            CountryList country;
+            CountryDB countrydb = new CountryDB();
+            country = countrydb.SelectAll();
             //foreach (Country c in country)
             //{
             //    Console.WriteLine($"{c.Id},{c.CountryName}");
             //}
+
+            //Country c1 = country[0];
+            //countrydb.Delete(c1);
+            //int c2 = countrydb.SaveChanges();
+            //Console.WriteLine($"{c2} rows Deleted");
 
             //Country countryToUpdate = country[0];
             //countryToUpdate.CountryName = "Israel";
@@ -59,6 +64,11 @@ namespace Test
             //    Console.WriteLine($"{p.Id},{p.Model},{p.TotalSeats}");
             //}
 
+            //Planes p1 = planes[0];
+            //planesdb.Delete(p1);
+            //int p2 = planesdb.SaveChanges();
+            //Console.WriteLine($"{p2} rows Deleted");
+
             //Planes planesToUpdate = planes[0];
             //planesToUpdate.Model += 1;
             //planesToUpdate.TotalSeats += 1;
@@ -80,6 +90,11 @@ namespace Test
             //{
             //    Console.WriteLine($"{a.Id},{a.AirportName},{a.Country.CountryName}");
             //}
+
+            //Airports ap1 = airports[0];
+            //airportsdb.Delete(ap1);
+            //int ap2 = airportsdb.SaveChanges();
+            //Console.WriteLine($"{ap2} rows Deleted");
 
             //Airports airportToUpdate = airports[0];
             //airportToUpdate.AirportName += "א";
@@ -114,21 +129,27 @@ namespace Test
             //int v = flightdb.SaveChanges();
             //Console.WriteLine($"{v} rows were update");
 
-            FlightDB fdb = new();
-            Flight myFlight = new Flight() { OriginId = airports[1], DestinationId = airports[2], DepartureTime = DateTime.Now, ArrivalTime = DateTime.Now, PlaneId = planes[3], IsCanceled = false, PriceInDolar = 1000};
-            fdb.Insert(myFlight);
-            int fin = fdb.SaveChanges();
-            Console.WriteLine($"{fin} rows were inserted");
+            //FlightDB fdb = new();
+            //Flight myFlight = new Flight() { OriginId = airports[1], DestinationId = airports[2], DepartureTime = DateTime.Now, ArrivalTime = DateTime.Now, PlaneId = planes[3], IsCanceled = false, PriceInDolar = 1000};
+            //fdb.Insert(myFlight);
+            //int fin = fdb.SaveChanges();
+            //Console.WriteLine($"{fin} rows were inserted");
 
 
             //Console.WriteLine("==========================");
-            //BookingsList bookings;
-            //BookingsDB bookingssdb = new BookingsDB();
-            //bookings = bookingssdb.SelectAll();
+            BookingsList bookings;
+            BookingsDB bookingssdb = new BookingsDB();
+            bookings = bookingssdb.SelectAll();
             //foreach (Bookings b in bookings)
             //{
             //    Console.WriteLine($"{b.Id},{b.UserId.Id},{b.FlightId.Id},{b.SeatNumber},{b.Rating}");
             //}
+
+            //Bookings b1 = bookings[0];
+            //bookingssdb.Delete(b1);
+            //int b2 = bookingssdb.SaveChanges();
+            //Console.WriteLine($"{b2} rows Deleted");
+
             //Bookings bookingToUpdate = bookings[0];
             //bookingToUpdate.UserId.Id += 1;
             //bookingToUpdate.FlightId.Id += 1;
