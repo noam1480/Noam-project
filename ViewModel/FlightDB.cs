@@ -45,9 +45,16 @@ namespace ViewModel
 
         protected override void CreateDeletedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
-        }
+            Flight c = entity as Flight;
+            if (c != null)
+            {
 
+                string sqlStr = $"UPDATE Flight SET IsCanceled={true} WHERE ID=@id";
+
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@id", c.Id));
+            }
+        }
         protected override void CreateInsertdSQL(BaseEntity entity, OleDbCommand cmd)
         {
             Flight f = entity as Flight;

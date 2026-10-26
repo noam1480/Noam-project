@@ -129,12 +129,16 @@ namespace Test
             //int v = flightdb.SaveChanges();
             //Console.WriteLine($"{v} rows were update");
 
+            //Flight f1 = flight[0];
+            //flightdb.Delete(f1);
+            //int f2 = flightdb.SaveChanges();
+            //Console.WriteLine($"{f2} rows Deleted");
+
             //FlightDB fdb = new();
             //Flight myFlight = new Flight() { OriginId = airports[1], DestinationId = airports[2], DepartureTime = DateTime.Now, ArrivalTime = DateTime.Now, PlaneId = planes[3], IsCanceled = false, PriceInDolar = 1000};
             //fdb.Insert(myFlight);
             //int fin = fdb.SaveChanges();
             //Console.WriteLine($"{fin} rows were inserted");
-
 
             //Console.WriteLine("==========================");
             BookingsList bookings;
@@ -166,13 +170,25 @@ namespace Test
             //Console.WriteLine($"{bin} rows were inserted");
 
             //Console.WriteLine("==========================");
-            //ManagerList manager;
-            //ManagerDB managerdb = new ManagerDB();
-            //manager = managerdb.SelectAll();
+            ManagerList manager;
+            ManagerDB managerdb = new ManagerDB();
+            manager = managerdb.SelectAll();
             //foreach (Manager m in manager)
             //{
             //    Console.WriteLine($"{m.Id}");
             //}
+
+            //למחוק את המנהל ולהשאיר את המשתמש
+            //Manager m3 = manager[0];
+            //managerdb.DeleteFromManager(m3);
+            //int m4 = managerdb.SaveChanges();
+            //Console.WriteLine($"{m4} rows Deleted");
+            
+            //מוחק את המנהל ואת המשתמש ביחד
+            //Manager m1 = manager[0];
+            //managerdb.Delete(m1);
+            //int m2 = managerdb.SaveChanges();
+            //Console.WriteLine($"{m2} rows Deleted");
 
             //ManagerDB mdb = new();
             //Manager myManager = new Manager() { Id=2,Name="Noam roz",Email = "noamroz@gmail.com",Pass= "nr12515",IsActive=true};
@@ -180,7 +196,6 @@ namespace Test
             //int min = mdb.SaveChanges();
             //Console.WriteLine($"{min} rows were inserted");
             //Console.WriteLine("==========================");
-
         }
     }
 }
