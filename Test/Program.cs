@@ -14,22 +14,27 @@ namespace Test
             //    Console.WriteLine($"{u.Id},{u.Name},{u.Email},{u.Pass},{u.IsActive}");
             //}
 
-            ////Users userToUpdate = users[0];
-            ////userToUpdate.Name += "א";
-            ////userToUpdate.Email += "א";
-            ////userToUpdate.Pass += "א";
-            ////userToUpdate.IsActive = false;
-            ////userdb.Update(userToUpdate);
-            ////int x = userdb.SaveChanges();
-            ////Console.WriteLine($"{x} rows were update");
+            //Users u1 = users[0];
+            //userdb.Delete(u1);
+            //int u2 = userdb.SaveChanges();
+            //Console.WriteLine($"{u2} rows Deleted");
 
-            //UsersDB udb = new();
-            //Users myusers = new Users() { Name = "ravid ohayon" , Email = "ravidohayon@gmail.com",Pass = "ro23211",IsActive = true};
-            //udb.Insert(myusers);
-            //int uin = udb.SaveChanges();
-            //Console.WriteLine($"{uin} rows were inserted");
+            //Users userToUpdate = users[0];
+            //userToUpdate.Name += "";
+            //userToUpdate.Email += "";
+            //userToUpdate.Pass += "";
+            //userToUpdate.IsActive = false;
+            //userdb.Update(userToUpdate);
+            //int x = userdb.SaveChanges();
+            //Console.WriteLine($"{x} rows were update");
 
-            //Console.WriteLine("==========================");
+            UsersDB udb = new();
+            Users myusers = new Users() { Name = "ravid ohayon", Email = "ravidohayon@gmail.com", Pass = "ro23211", IsActive = true };
+            udb.Insert(myusers);
+            int uin = udb.SaveChanges();
+            Console.WriteLine($"{uin} rows were inserted");
+
+            Console.WriteLine("==========================");
             CountryList country;
             CountryDB countrydb = new CountryDB();
             country = countrydb.SelectAll();
@@ -44,18 +49,18 @@ namespace Test
             //Console.WriteLine($"{c2} rows Deleted");
 
             //Country countryToUpdate = country[0];
-            //countryToUpdate.CountryName = "Israel";
+            //countryToUpdate.CountryName = "";
             //countrydb.Update(countryToUpdate);
             //int y = countrydb.SaveChanges();
             //Console.WriteLine($"{y} rows were update");
 
-            //CountryDB cdb = new();
-            //Country myCountry = new Country() { CountryName = "Mexico" };
-            //cdb.Insert(myCountry);
-            //int cin = cdb.SaveChanges();
-            //Console.WriteLine($"{cin} rows were inserted");
+            CountryDB cdb = new();
+            Country myCountry = new Country() { CountryName = "Mexico" };
+            cdb.Insert(myCountry);
+            int cin = cdb.SaveChanges();
+            Console.WriteLine($"{cin} rows were inserted");
 
-            //Console.WriteLine("==========================");
+            Console.WriteLine("==========================");
             PlanesList planes;
             PlanesDB planesdb = new PlanesDB();
             planes = planesdb.SelectAll();
@@ -70,19 +75,19 @@ namespace Test
             //Console.WriteLine($"{p2} rows Deleted");
 
             //Planes planesToUpdate = planes[0];
-            //planesToUpdate.Model += 1;
-            //planesToUpdate.TotalSeats += 1;
+            //planesToUpdate.Model += 0;
+            //planesToUpdate.TotalSeats += 0;
             //planesdb.Update(planesToUpdate);
             //int z = planesdb.SaveChanges();
             //Console.WriteLine($"{z} rows were update");
 
-            //PlanesDB pdb = new();
-            //Planes myPlanes = new Planes() { Model = 999,TotalSeats = 60 };
-            //pdb.Insert(myPlanes);
-            //int pin = pdb.SaveChanges();
-            //Console.WriteLine($"{pin} rows were inserted");
+            PlanesDB pdb = new();
+            Planes myPlanes = new Planes() { Model = 999, TotalSeats = 60 };
+            pdb.Insert(myPlanes);
+            int pin = pdb.SaveChanges();
+            Console.WriteLine($"{pin} rows were inserted");
 
-            //Console.WriteLine("==========================");
+            Console.WriteLine("==========================");
             AirportsList airports;
             AirportsDB airportsdb = new AirportsDB();
             airports = airportsdb.SelectAll();
@@ -97,17 +102,17 @@ namespace Test
             //Console.WriteLine($"{ap2} rows Deleted");
 
             //Airports airportToUpdate = airports[0];
-            //airportToUpdate.AirportName += "א";
-            //airportToUpdate.Country.Id += 1;
+            //airportToUpdate.AirportName += "";
+            //airportToUpdate.Country.Id += 0;
             //airportsdb.Update(airportToUpdate);
             //int l = airportsdb.SaveChanges();
             //Console.WriteLine($"{l} rows were update");
 
-            //AirportsDB apdb = new();
-            //Airports myAirports = new Airports() { AirportName = "MiamiAP", Country = country[2] };
-            //apdb.Insert(myAirports);
-            //int apin = apdb.SaveChanges();
-            //Console.WriteLine($"{apin} rows were inserted");
+            AirportsDB apdb = new();
+            Airports myAirports = new Airports() { AirportName = "MiamiAP", Country = country[2] };
+            apdb.Insert(myAirports);
+            int apin = apdb.SaveChanges();
+            Console.WriteLine($"{apin} rows were inserted");
 
             Console.WriteLine("==========================");
             FlightList flight;
@@ -117,30 +122,31 @@ namespace Test
             //{
             //    Console.WriteLine($"{f.Id},{f.OriginId.AirportName},{f.DestinationId.AirportName},{f.DepartureTime},{f.ArrivalTime},{f.PlaneId.Id},{f.IsCanceled},{f.PriceInDolar}");
             //}
-            //Flight flightToUpdate = flight[0];
-            //flightToUpdate.OriginId.Id += 1;
-            //flightToUpdate.DestinationId.Id += 1;
-            //flightToUpdate.DepartureTime = DateTime.Now;
-            //flightToUpdate.ArrivalTime = DateTime.Now;
-            //flightToUpdate.PlaneId.Id = 1;
-            //flightToUpdate.IsCanceled = false;
-            //flightToUpdate.PriceInDolar += 1;
-            //flightdb.Update(flightToUpdate);
-            //int v = flightdb.SaveChanges();
-            //Console.WriteLine($"{v} rows were update");
 
             //Flight f1 = flight[0];
             //flightdb.Delete(f1);
             //int f2 = flightdb.SaveChanges();
             //Console.WriteLine($"{f2} rows Deleted");
 
-            //FlightDB fdb = new();
-            //Flight myFlight = new Flight() { OriginId = airports[1], DestinationId = airports[2], DepartureTime = DateTime.Now, ArrivalTime = DateTime.Now, PlaneId = planes[3], IsCanceled = false, PriceInDolar = 1000};
-            //fdb.Insert(myFlight);
-            //int fin = fdb.SaveChanges();
-            //Console.WriteLine($"{fin} rows were inserted");
+            //Flight flightToUpdate = flight[0];
+            //flightToUpdate.OriginId.Id += 0;
+            //flightToUpdate.DestinationId.Id += 0;
+            //flightToUpdate.DepartureTime = DateTime.Now;
+            //flightToUpdate.ArrivalTime = DateTime.Now;
+            //flightToUpdate.PlaneId.Id += 0;
+            //flightToUpdate.IsCanceled = false;
+            //flightToUpdate.PriceInDolar += 0;
+            //flightdb.Update(flightToUpdate);
+            //int v = flightdb.SaveChanges();
+            //Console.WriteLine($"{v} rows were update");
 
-            //Console.WriteLine("==========================");
+            FlightDB fdb = new();
+            Flight myFlight = new Flight() { OriginId = airports[1], DestinationId = airports[2], DepartureTime = DateTime.Now, ArrivalTime = DateTime.Now, PlaneId = planes[3], IsCanceled = false, PriceInDolar = 1000 };
+            fdb.Insert(myFlight);
+            int fin = fdb.SaveChanges();
+            Console.WriteLine($"{fin} rows were inserted");
+
+            Console.WriteLine("==========================");
             BookingsList bookings;
             BookingsDB bookingssdb = new BookingsDB();
             bookings = bookingssdb.SelectAll();
@@ -155,21 +161,21 @@ namespace Test
             //Console.WriteLine($"{b2} rows Deleted");
 
             //Bookings bookingToUpdate = bookings[0];
-            //bookingToUpdate.UserId.Id += 1;
-            //bookingToUpdate.FlightId.Id += 1;
-            //bookingToUpdate.SeatNumber += 1;
-            //bookingToUpdate.Rating += 1;
+            //bookingToUpdate.UserId.Id += 0;
+            //bookingToUpdate.FlightId.Id += 0;
+            //bookingToUpdate.SeatNumber += 0;
+            //bookingToUpdate.Rating += 0;
             //bookingssdb.Update(bookingToUpdate);
             //int q = bookingssdb.SaveChanges();
             //Console.WriteLine($"{q} rows were update");
 
-            //BookingsDB bdb = new();
-            //Bookings myBookings = new Bookings() { UserId = users[1], FlightId = flight[1], SeatNumber=1, Rating=2 };
-            //bdb.Insert(myBookings);
-            //int bin = bdb.SaveChanges();
-            //Console.WriteLine($"{bin} rows were inserted");
+            BookingsDB bdb = new();
+            Bookings myBookings = new Bookings() { UserId = users[1], FlightId = flight[1], SeatNumber = 1, Rating = 2 };
+            bdb.Insert(myBookings);
+            int bin = bdb.SaveChanges();
+            Console.WriteLine($"{bin} rows were inserted");
 
-            //Console.WriteLine("==========================");
+            Console.WriteLine("==========================");
             ManagerList manager;
             ManagerDB managerdb = new ManagerDB();
             manager = managerdb.SelectAll();
@@ -183,18 +189,18 @@ namespace Test
             //managerdb.DeleteFromManager(m3);
             //int m4 = managerdb.SaveChanges();
             //Console.WriteLine($"{m4} rows Deleted");
-            
-            //מוחק את המנהל ואת המשתמש ביחד
+
+            ////מוחק את המנהל ואת המשתמש ביחד
             //Manager m1 = manager[0];
             //managerdb.Delete(m1);
             //int m2 = managerdb.SaveChanges();
             //Console.WriteLine($"{m2} rows Deleted");
 
-            //ManagerDB mdb = new();
-            //Manager myManager = new Manager() { Id=2,Name="Noam roz",Email = "noamroz@gmail.com",Pass= "nr12515",IsActive=true};
-            //mdb.Insert(myManager);
-            //int min = mdb.SaveChanges();
-            //Console.WriteLine($"{min} rows were inserted");
+            ManagerDB mdb = new();
+            Manager myManager = new Manager() { Id = 2, Name = "Noam roz", Email = "noamroz@gmail.com", Pass = "nr12515", IsActive = true };
+            mdb.Insert(myManager);
+            int min = mdb.SaveChanges();
+            Console.WriteLine($"{min} rows were inserted");
             //Console.WriteLine("==========================");
         }
     }
